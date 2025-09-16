@@ -1,0 +1,29 @@
+{
+  "version": "v2.0",
+  "suite": "aes256-gcm-siv",
+  "chunk_size": 131072,
+  "file_id_hex": "8eaf015d9b2c1528",
+  "kdf_salt_hex": null,
+  "aad_hex": "515346532d504145010000000000000007717366732f7632000000000000000e6165733235362d67636d2d73697600000000000000040002000000000000000000088eaf015d9b2c1528",
+
+  "hkdf": {
+    "hash": "sha3-384",
+    "extract_salt": "qsfs/kdf/v2",
+    "info": "qsfs/kek/v2",
+    "mlkem_ss_hex": "303132333435363738393a3b3c3d3e3f404142434445464748494a4b4c4d4e4f",
+    "x25519_ss_hex": "505152535455565758595a5b5c5d5e5f606162636465666768696a6b6c6d6e6f",
+    "kek_hex": "b48776ae06e112d1115e002a687cb49b692e585eb37edb36e9ae3b2e1ddcee12"
+  },
+
+  "wrap": {
+    "alg": "aes256-gcm",
+    "nonce_hex": "000102030405060708090a0b",
+    "cek_hex": "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f",
+    "wrapped_hex": "d0e68aa6ff9640c38b95c05c35314c53a3273536904bf2463ea70edb7ddcf2294890bdc7ccb2d1026d85c49e8d52d505"
+  },
+
+  "chunk0_siv": {
+    "pt_utf8": "hello qsfs v2\n",
+    "ct_hex": "9e07a7e2ba36c2d0f050d9575fd40b19c4ab226290ced7cd3851140476ad"
+  }
+}

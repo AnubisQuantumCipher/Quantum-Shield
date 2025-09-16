@@ -1,0 +1,21 @@
+[workspace]
+members = ["crates/qsfs-core", "crates/qsfs-cli", "tools/verify-kat"]
+resolver = "2"
+
+[workspace.package]
+edition = "2021"
+license = "Apache-2.0 OR MIT"
+rust-version = "1.75"
+
+[workspace.metadata.cargo-audit]
+ignore = []
+
+[profile.release]
+lto = "fat"
+codegen-units = 1
+opt-level = "z"
+panic = "abort"
+
+[profile.dev]
+debug = 2
+overflow-checks = true
