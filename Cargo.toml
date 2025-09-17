@@ -2,6 +2,7 @@
 members = [
   "crates/qsfs-core",
   "crates/qsfs-cli",
+  "crates/quantum-shield",
   "tools/verify-kat",
 ]
 resolver = "2"

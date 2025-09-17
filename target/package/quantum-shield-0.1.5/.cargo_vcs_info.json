@@ -1,0 +1,7 @@
+{
+  "git": {
+    "sha1": "b6be2e58079336fc7a99a73d98440650394e9440",
+    "dirty": true
+  },
+  "path_in_vcs": "crates/quantum-shield"
+}
