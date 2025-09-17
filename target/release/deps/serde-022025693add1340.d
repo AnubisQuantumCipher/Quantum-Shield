@@ -1,0 +1,11 @@
+/Users/sicarii/quantum-shield/Quantum-Shield/target/release/deps/serde-022025693add1340.d: /Users/sicarii/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.221/src/lib.rs /Users/sicarii/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.221/src/integer128.rs /Users/sicarii/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.221/src/private/mod.rs /Users/sicarii/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.221/src/private/de.rs /Users/sicarii/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.221/src/private/ser.rs
+
+/Users/sicarii/quantum-shield/Quantum-Shield/target/release/deps/libserde-022025693add1340.rlib: /Users/sicarii/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.221/src/lib.rs /Users/sicarii/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.221/src/integer128.rs /Users/sicarii/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.221/src/private/mod.rs /Users/sicarii/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.221/src/private/de.rs /Users/sicarii/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.221/src/private/ser.rs
+
+/Users/sicarii/quantum-shield/Quantum-Shield/target/release/deps/libserde-022025693add1340.rmeta: /Users/sicarii/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.221/src/lib.rs /Users/sicarii/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.221/src/integer128.rs /Users/sicarii/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.221/src/private/mod.rs /Users/sicarii/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.221/src/private/de.rs /Users/sicarii/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.221/src/private/ser.rs
+
+/Users/sicarii/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.221/src/lib.rs:
+/Users/sicarii/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.221/src/integer128.rs:
+/Users/sicarii/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.221/src/private/mod.rs:
+/Users/sicarii/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.221/src/private/de.rs:
+/Users/sicarii/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.221/src/private/ser.rs:

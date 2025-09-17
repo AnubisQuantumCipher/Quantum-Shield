@@ -1,0 +1,56 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "QSFS v2 KAT",
+  "type": "object",
+  "required": [
+    "version",
+    "suite",
+    "chunk_size",
+    "file_id_hex",
+    "aad_hex",
+    "hkdf",
+    "wrap",
+    "chunk0_siv"
+  ],
+  "properties": {
+    "version": { "type": "string", "enum": ["v2.0", "v2.1"] },
+    "suite": { "type": "string", "enum": ["aes256-gcm-siv", "aes256-gcm"] },
+    "chunk_size": { "type": "integer", "minimum": 1 },
+    "file_id_hex": { "type": "string", "pattern": "^[0-9a-fA-F]{16}$" },
+    "kdf_salt_hex": { "type": ["string", "null"], "pattern": "^[0-9a-fA-F]{64}$" },
+    "aad_hex": { "type": "string", "pattern": "^[0-9a-fA-F]+$" },
+
+    "hkdf": {
+      "type": "object",
+      "required": ["hash", "extract_salt", "info", "mlkem_ss_hex", "x25519_ss_hex", "kek_hex"],
+      "properties": {
+        "hash": { "type": "string", "enum": ["sha3-384"] },
+        "extract_salt": { "type": "string" },
+        "info": { "type": "string", "const": "qsfs/kek/v2" },
+        "mlkem_ss_hex": { "type": "string", "pattern": "^[0-9a-fA-F]+$" },
+        "x25519_ss_hex": { "type": "string", "pattern": "^[0-9a-fA-F]*$" },
+        "kek_hex": { "type": "string", "pattern": "^[0-9a-fA-F]{64}$" }
+      }
+    },
+
+    "wrap": {
+      "type": "object",
+      "required": ["alg", "nonce_hex", "cek_hex", "wrapped_hex"],
+      "properties": {
+        "alg": { "type": "string", "enum": ["aes256-gcm"] },
+        "nonce_hex": { "type": "string", "pattern": "^[0-9a-fA-F]{24}$" },
+        "cek_hex": { "type": "string", "pattern": "^[0-9a-fA-F]{64}$" },
+        "wrapped_hex": { "type": "string", "pattern": "^[0-9a-fA-F]+$" }
+      }
+    },
+
+    "chunk0_siv": {
+      "type": "object",
+      "required": ["pt_utf8", "ct_hex"],
+      "properties": {
+        "pt_utf8": { "type": "string" },
+        "ct_hex":  { "type": "string", "pattern": "^[0-9a-fA-F]+$" }
+      }
+    }
+  }
+}
