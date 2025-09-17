@@ -194,7 +194,7 @@ cargo audit
 
 - **Crates.io Issues**: Contact crates.io support
 - **GitHub Issues**: Use the repository issue tracker
-- **Security**: Email security@quantum-shield.dev
+- **Security**: Email sic.tau@proton.me
 
 ---
 

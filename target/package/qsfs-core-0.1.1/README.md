@@ -112,6 +112,6 @@ This project is dual-licensed under MIT OR Apache-2.0.
 
 ## Security
 
-For security vulnerabilities, please email: security@quantum-shield.dev
+For security vulnerabilities, please email: sic.tau@proton.me
 
 **Do not create public issues for security vulnerabilities.**

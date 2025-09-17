@@ -321,7 +321,7 @@ This project is dual-licensed under:
 
 ## 🔒 Security Disclosure
 
-For security vulnerabilities, please email: security@quantum-shield.dev
+For security vulnerabilities, please email: sic.tau@proton.me
 
 **Do not create public issues for security vulnerabilities.**
 
