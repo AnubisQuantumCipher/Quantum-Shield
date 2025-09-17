@@ -1,394 +1,257 @@
-# 🛡️ Quantum-Shield File Encryption System (QSFS)
+# 🛡️ Quantum-Shield: The Complete Post-Quantum & Hybrid Encryption System
 
-**The world's most secure post-quantum file encryption system with ML-DSA-87 digital signatures**
+**A comprehensive, defense-in-depth cryptographic solution for the quantum era, featuring a full suite of CNSA 2.0 compliant and hybrid encryption technologies.**
 
+[![Crates.io](https://img.shields.io/crates/v/qsfs.svg)](https://crates.io/crates/qsfs)
 [![Build Status](https://img.shields.io/badge/build-passing-brightgreen)](https://github.com/AnubisQuantumCipher/quantum-shield)
-[![Security](https://img.shields.io/badge/security-quantum--resistant-blue)](https://csrc.nist.gov/projects/post-quantum-cryptography)
+[![Security](https://img.shields.io/badge/security-CNSA%202.0%20%7C%20NIST%20Level%205-blue)](https://csrc.nist.gov/projects/post-quantum-cryptography)
 [![License](https://img.shields.io/badge/license-MIT%2FApache--2.0-green)](LICENSE-MIT)
-[![CNSA 2.0](https://img.shields.io/badge/CNSA%202.0-compliant-purple)](https://media.defense.gov/2022/Sep/07/2003071834/-1/-1/0/CSA_CNSA_2.0_ALGORITHMS_.PDF)
+[![Features](https://img.shields.io/badge/features-all%20enabled-purple)](./crates/qsfs-core/Cargo.toml#L23)
 
-QSFS is a cutting-edge, quantum-resistant file encryption system that implements NIST-standardized post-quantum cryptography with military-grade security enhancements and **ML-DSA-87 digital signatures**. Built for the quantum computing era, QSFS provides unbreakable encryption that remains secure against both classical and quantum attacks.
+Quantum-Shield is a state-of-the-art, quantum-resistant file encryption system that provides a complete cryptographic arsenal for the post-quantum world. It combines NIST-standardized post-quantum algorithms with battle-tested classical cryptography to deliver an unparalleled level of security against all known threats, both classical and quantum.
 
-## 🔐 **Quantum-First Security Architecture**
+## 🔐 **Complete Cryptographic Suite**
 
-### **Post-Quantum Cryptography (CNSA 2.0 Compliant)**
-- **ML-KEM-1024** (FIPS 203) - Quantum-resistant key encapsulation
-- **ML-DSA-87** (FIPS 204) - Post-quantum digital signatures **[NEW]**
-- **AES-256-GCM** - Authenticated encryption with additional data
-- **BLAKE3** - High-performance cryptographic hashing
-- **HKDF-SHA3-384** - Key derivation with enhanced domain separation
+Quantum-Shield provides a full spectrum of cryptographic primitives, all enabled by default, to ensure maximum security out of the box.
 
-### **🆕 Digital Signature Security (ML-DSA-87)**
-- ✅ **Default-On Signatures** - All files signed with ML-DSA-87 by default
-- ✅ **Trust Store Management** - Comprehensive signer verification system
-- ✅ **Canonical Serialization** - Deterministic header signing for integrity
-- ✅ **Mandatory Verification** - Signature verification required before decryption
-- ✅ **Auto-Provisioning** - Automatic signer key generation and management
-- ✅ **Non-Repudiation** - Cryptographic proof of file origin and authenticity
+| Category                                   | Algorithm                                       | Standard/Reference                                                                    |
+| ------------------------------------------ | ----------------------------------------------- | ------------------------------------------------------------------------------------- |
+| **Post-Quantum Cryptography**              |                                                 | **CNSA 2.0 Compliant**                                                                |
+| *Key Encapsulation*                        | **ML-KEM-1024 (Kyber)**                         | FIPS 203                                                                              |
+| *Digital Signatures*                       | **ML-DSA-87 (Dilithium)**                       | FIPS 204                                                                              |
+| **Hybrid Classical Cryptography**          |                                                 |                                                                                       |
+| *Key Exchange*                             | **X25519 (Curve25519)**                         | RFC 7748                                                                              |
+| *Digital Signatures*                       | **Ed25519**                                     | RFC 8032                                                                              |
+| **Authenticated Encryption (AEAD)**        |                                                 |                                                                                       |
+| *Default AEAD*                             | **AES-256-GCM-SIV**                             | RFC 8452 (Nonce-Misuse Resistant)                                                     |
+| *Alternative AEAD*                         | **AES-256-GCM**                                 | NIST SP 800-38D                                                                       |
+| *Alternative AEAD*                         | **ChaCha20-Poly1305**                           | RFC 8439                                                                              |
+| **Hashing & Key Derivation**               |                                                 |                                                                                       |
+| *Primary Hasher*                           | **BLAKE3**                                      | [BLAKE3 Official Site](https://github.com/BLAKE3-team/BLAKE3)                         |
+| *Key Derivation*                           | **HKDF with SHA-384**                           | RFC 5869                                                                              |
+| *Password Hashing*                         | **Argon2**                                      | RFC 9106                                                                              |
+| *Auxiliary Hashing*                        | **SHA-3, SHA-2**                                | FIPS 202, FIPS 180-4                                                                  |
+| **Hardware Security Module (HSM)**         |                                                 |                                                                                       |
+| *Interface*                                | **PKCS#11**                                     | OASIS Standard                                                                        |
 
-### **Advanced Security Features**
-- ✅ **Multi-Recipient KEM-DEM** - Secure key wrapping per recipient
-- ✅ **Verifiable Decapsulation** - Prevents implementation bypasses
-- ✅ **Memory Safety** - Automatic zeroization and secure memory handling
-- ✅ **Atomic I/O** - Crash-safe operations with secure permissions
-- ✅ **Side-Channel Protection** - Constant-time operations and memory locking
-- ✅ **Nonce Misuse Resistance** - Optional AES-GCM-SIV support
-- ✅ **Enhanced Domain Separation** - Cryptographically distinct key derivations
-- ✅ **Streaming AEAD** - Efficient processing of large files
-- ✅ **Fail-Closed Security** - Comprehensive validation and error handling
+## ✨ **Advanced Security Architecture**
+
+Quantum-Shield is engineered with a defense-in-depth philosophy, incorporating multiple layers of security to protect against a wide range of attack vectors.
+
+-   **Quantum Resistance**: Utilizes ML-KEM-1024 and ML-DSA-87, standardized by NIST, to protect against attacks from quantum computers.
+-   **Hybrid Security**: Combines post-quantum and classical cryptography (X25519) to ensure security even in the unlikely event of a breakthrough in cryptanalysis of one primitive set.
+-   **Nonce-Misuse Resistance**: Defaults to AES-256-GCM-SIV to prevent catastrophic failures in the case of nonce reuse.
+-   **Memory Safety**: Built in Rust with a focus on memory safety. Utilizes the `secrecy` and `zeroize` crates to ensure that sensitive cryptographic material is automatically cleared from memory after use.
+-   **Constant-Time Operations**: Protects against timing-based side-channel attacks by ensuring that cryptographic operations take the same amount of time regardless of the input.
+-   **Mandatory Authenticity**: All encrypted files are digitally signed with ML-DSA-87 by default, ensuring both integrity and authenticity. Decryption requires signature verification.
+-   **Streaming Encryption**: Efficiently encrypts and decrypts large files without requiring large amounts of memory, using a streaming AEAD interface.
 
 ## 🚀 **Quick Start**
 
-### One‑liner install + setup (recommended)
+### **Installation**
+
+Install the Quantum-Shield CLI directly from crates.io:
+
 ```bash
-cd script && ./install.sh && ./setup.sh
+cargo install qsfs
 ```
 
-This will:
-- Install the QSFS CLI to `~/.cargo/bin` (adds PATH if needed)
-- Create an ML‑DSA‑87 signer at `~/.qsfs/signer.mldsa87` and add it to the trust store
-- Generate ML‑KEM‑1024 keys at `~/.qsfs/mlkem1024.{pk,sk}`
-- Generate X25519 keys at `~/.qsfs/x25519.{pk,sk}`
+### **Encryption & Decryption Workflow**
 
-### Manual install (alternative)
-```bash
-cargo install --path crates/qsfs-cli --features "pq,gcm-siv"
-qsfs --version
-```
+1.  **Generate Keys**: Quantum-Shield will automatically generate all necessary keys on first run.
 
-### **🆕 Enhanced Encryption with Digital Signatures**
-```bash
-# Encrypt with automatic ML-DSA-87 signature (default behavior)
-qsfs encrypt \
-  --input sensitive-document.pdf \
-  --output document.qsfs \
-  --recipient-pk ~/.qsfs/mlkem1024.pk \
-  --recipient-x25519-pk ~/.qsfs/x25519.pk \
-  --explain
+    ```bash
+    # Generate ML-KEM, ML-DSA, and X25519 keys
+    qsfs-keygen
+    qsfs signer-keygen
+    qsfs x25519-keygen
+    ```
 
-# Output: 
-# sealed -> document.qs
-# ✅ signed with ML-DSA-87 signer: a1b2c3d4e5f6...
-```
+2.  **Encrypt a File**:
 
-### **🆕 Decrypt with Signature Verification**
-```bash
-# Decrypt with mandatory signature verification
-qsfs decrypt \
-  --input document.qsfs \
-  --output document.pdf \
-  --mlkem-sk ~/.qsfs/mlkem1024.sk \
-  --x25519-sk ~/.qsfs/x25519.sk
+    ```bash
+    qsfs encrypt \
+      --input sensitive-document.pdf \
+      --output document.qsfs \
+      --recipient-pk ~/.qsfs/mlkem1024.pk
+    ```
 
-# Output: ✅ ML-DSA-87 signature verified: a1b2c3d4e5f6...
-```
+3.  **Decrypt a File**:
 
-## 🔧 **Advanced Usage**
+    ```bash
+    qsfs decrypt \
+      --input document.qsfs \
+      --output decrypted-document.pdf \
+      --mlkem-sk ~/.qsfs/mlkem1024.sk
+    ```
 
-### **🆕 Trust Store Management**
-```bash
-# List trusted signers
-./target/release/qsfs trust list
+## 🛠️ **Build Features**
 
-# Add a signer to trust store
-./target/release/qsfs trust add signer.mldsa87.pk --note "Alice's signing key"
-
-# Remove a signer from trust store
-./target/release/qsfs trust remove a1b2c3d4e5f6...
-```
-
-### **Multi-Recipient Encryption with Signatures**
-```bash
-# Encrypt to multiple recipients with ML-DSA-87 signature
-./target/release/qsfs encrypt \
-  --input company-secrets.tar.gz \
-  --output secrets.qs \
-  --recipient-pk alice.pk \
-  --recipient-pk bob.pk \
-  --recipient-pk charlie.pk \
-  --chunk 262144 \
-  --explain
-```
-
-### **🆕 Security Profiles**
-
-#### **Maximum Security Profile**
-```bash
-# Ultra-secure encryption with custom signer
-./target/release/qsfs encrypt \
-  --input classified.zip \
-  --output classified.qs \
-  --recipient-pk recipient.pk \
-  --signer-key custom-signer.mldsa87 \
-  --chunk 65536 \
-  --explain
-```
-
-#### **Development Profile**
-```bash
-# Trust any valid signature (development only)
-./target/release/qsfs decrypt \
-  --input test-file.qs \
-  --output test-file.txt \
-  --mlkem-sk test.sk \
-  --trust-any-signer
-```
-
-#### **Legacy Support**
-```bash
-# Create unsigned file (not recommended)
-./target/release/qsfs encrypt \
-  --input legacy-data.txt \
-  --output legacy.qs \
-  --recipient-pk legacy.pk \
-  --no-signer
-
-# Decrypt unsigned file (security risk)
-./target/release/qsfs decrypt \
-  --input legacy.qs \
-  --output legacy-data.txt \
-  --mlkem-sk legacy.sk \
-  --allow-unsigned
-```
-
-## 📊 **Cryptographic Specifications**
-
-| Component | Algorithm | Key Size | Security Level | Status |
-|-----------|-----------|----------|----------------|---------|
-| **Key Encapsulation** | ML-KEM-1024 | 1568 bytes | NIST Level 5 | ✅ Active |
-| **Digital Signatures** | ML-DSA-87 | 4864 bytes | NIST Level 5 | 🆕 **NEW** |
-| **Symmetric Encryption** | AES-256-GCM | 256 bits | 128-bit security | ✅ Active |
-| **Key Derivation** | HKDF-SHA384 | Variable | 192-bit security | ✅ Active |
-| **File Integrity** | BLAKE3 | 256 bits | 128-bit security | ✅ Active |
-
-## 🏗️ **Enhanced File Format Specification**
-
-### **QSFS Container Structure v2.0**
-```
-┌─────────────────────────────────────────────────────────────┐
-│ Header Length (4 bytes, big-endian)                        │
-├─────────────────────────────────────────────────────────────┤
-│ Signed Header (PostCard serialized)                        │
-│ ├─ Magic: "QSFS2\0"                                        │
-│ ├─ Chunk Size: 131072 bytes (default)                     │
-│ ├─ File ID: 8-byte nonce seed                             │
-│ ├─ BLAKE3 Hash: 32-byte integrity hash                    │
-│ ├─ Recipients: ML-KEM ciphertexts + wrapped CEKs          │
-│ ├─ ML-DSA-87 Signature: Detached signature (NEW)         │
-│ └─ Signature Metadata: Signer ID + public key (NEW)      │
-├─────────────────────────────────────────────────────────────┤
-│ Encrypted Chunks (AES-256-GCM streaming)                   │
-│ ├─ Chunk 0: [IV][Ciphertext][Tag]                         │
-│ ├─ Chunk 1: [IV][Ciphertext][Tag]                         │
-│ └─ ...                                                     │
-└─────────────────────────────────────────────────────────────┘
-```
-
-### **🆕 Security Properties Enhanced**
-- **Quantum Resistance**: Safe against Shor's and Grover's algorithms
-- **Forward Secrecy**: Compromise of long-term keys doesn't affect past sessions
-- **Non-Repudiation**: ML-DSA-87 signatures provide cryptographic proof of origin
-- **Integrity Protection**: BLAKE3 + AEAD tags + digital signatures detect tampering
-- **Authenticity**: Cryptographic proof of file creator identity
-- **Confidentiality**: AES-256-GCM with unique nonces per chunk
-
-## 🔬 **Performance Benchmarks**
-
-| File Size | Encryption | Decryption | Signing | Verification | Total Overhead |
-|-----------|------------|------------|---------|--------------|----------------|
-| 1 MB      | 12ms       | 15ms       | 8ms     | 3ms          | +11ms          |
-| 10 MB     | 89ms       | 95ms       | 8ms     | 3ms          | +11ms          |
-| 100 MB    | 847ms      | 901ms      | 8ms     | 3ms          | +11ms          |
-| 1 GB      | 8.2s       | 8.7s       | 8ms     | 3ms          | +11ms          |
-
-*Benchmarks on Intel i7-12700K, NVMe SSD. Signature overhead is constant regardless of file size.*
-
-## 🛠️ **Integration Examples**
-
-### **🆕 Secure Backup with Signatures**
-```bash
-#!/bin/bash
-# Quantum-resistant backup with digital signatures
-./target/release/qsfs encrypt \
-  --input "$HOME/Documents" \
-  --output "backup-$(date +%Y%m%d).qs" \
-  --recipient-pk backup-server.pk \
-  --explain
-
-echo "Backup created with ML-DSA-87 signature for authenticity"
-```
-
-### **🆕 Secure File Transfer with Verification**
-```bash
-# Sender
-./target/release/qsfs encrypt \
-  --input sensitive-data.zip \
-  --output transfer.qs \
-  --recipient-pk recipient.pk \
-  --explain
-
-# Receiver (automatic signature verification)
-./target/release/qsfs decrypt \
-  --input transfer.qs \
-  --output received-data.zip \
-  --mlkem-sk my-private.sk
-```
-
-## QSFS v2 → v2.1 Crypto Migration
-
-- Default AEAD: AES-256-GCM-SIV for streaming (misuse-resistant). Legacy AES-256-GCM is still available via `--features gcm`.
-- Per-file KDF salt (v2.1): New files include a 32-byte public `kdf_salt` in the header. It’s bound in AAD and used as the HKDF-Extract salt for KEK derivation.
-- PAE/AAD:
-  - v2.0: `AAD = "QSFS-PAE\x01" || Σ u64_be(len)||item`, items = `["qsfs/v2", suite ASCII, u32_be(chunk_size), file_id]`.
-  - v2.1: `AAD = "QSFS-PAE\x02" || Σ ...`, items = v2.0 plus `kdf_salt(32)`.
-- Compatibility:
-  - v2.0 files (no `kdf_salt`) still decrypt: QSFS auto-selects the v2.0 AAD layout and constant salt `"qsfs/kdf/v2"`.
-  - v2.1 files (with `kdf_salt`) require QSFS ≥ v2.1.
-- Inspection: `qsfs inspect` prints `aead_suite`, `kdf_salt` status, and KDF details.
-- Why: v2.1 hardens key separation and AAD binding while keeping v2.0 readable.
-
-Developers: see `docs/CRYPTO-SPEC-v2.md` and `vectors/` for byte-exact KATs and a Rust verifier.
-
-### **🆕 Enterprise Document Signing**
-```bash
-# Sign and encrypt corporate documents
-./target/release/qsfs encrypt \
-  --input quarterly-report.pdf \
-  --output report-signed.qs \
-  --recipient-pk ceo.pk \
-  --recipient-pk cfo.pk \
-  --signer-key corporate-signer.mldsa87 \
-  --explain
-```
-
-## 🧪 **Testing & Validation**
-
-### **🆕 Signature Functionality Tests**
-```bash
-# Test complete signature workflow
-cargo test signature_workflow --release
-
-# Test trust store management
-cargo test trust_store --release
-
-# Test signature verification
-cargo test signature_verification --release
-
-# Test unsigned file rejection
-cargo test unsigned_rejection --release
-```
-
-### **Security Validation**
-```bash
-# Verify quantum resistance
-./validate-pq-security.sh
-
-# Test signature integrity
-./test-signature-integrity.sh
-
-# Validate memory safety
-valgrind ./target/release/qsfs encrypt --input test.txt --output test.qs --recipient-pk test.pk
-```
-
-## 🔧 **Build Features**
+All cryptographic features are enabled by default to provide the highest level of security. You can customize the build by disabling default features and enabling only the ones you need.
 
 ```toml
+# Default features in crates/qsfs-core/Cargo.toml
 [features]
-default = ["pq", "cascade"]
-pq = ["pqcrypto-mlkem", "pqcrypto-mldsa"]  # Post-quantum algorithms (includes ML-DSA-87)
-cascade = ["secrecy", "zeroize"]            # Memory safety
-gcm-siv = ["aes-gcm-siv"]                   # Nonce misuse resistance
-serde_support = ["serde", "postcard"]       # Serialization
+default = ["pq", "hybrid-x25519", "gcm-siv", "gcm", "cascade", "hsm"]
+
+# Post-Quantum Cryptography
+pq = ["pqcrypto-mlkem", "pqcrypto-mldsa", "pqcrypto-traits"]
+
+# Hybrid Classical Cryptography
+hybrid-x25519 = ["x25519-dalek", "ed25519-dalek"]
+
+# AEAD Ciphers
+gcm-siv = ["aes-gcm-siv"] # Nonce-misuse resistant
+gcm = []
+cascade = ["chacha20poly1305"]
+
+# Hardware Security Module Support
+hsm = ["cryptoki"]
 ```
-
-## 🌐 **Platform Compatibility**
-
-| Platform | Encryption | Signatures | Status | Notes |
-|----------|------------|------------|--------|-------|
-| Linux x86_64 | ✅ | ✅ | Full Support | Primary development platform |
-| macOS ARM64 | ✅ | ✅ | Full Support | Apple Silicon optimized |
-| Windows x64 | ✅ | ✅ | Full Support | MSVC and GNU toolchains |
-| Linux ARM64 | ✅ | ✅ | Full Support | Raspberry Pi 4+ compatible |
-| FreeBSD | ✅ | 🟡 | Experimental | Community maintained |
-
-## 📚 **Documentation**
-
-- **[Security Architecture](docs/security.md)** - Detailed cryptographic design
-- **[Signature Guide](docs/signatures.md)** - ML-DSA-87 implementation details **[NEW]**
-- **[Trust Store](docs/trust-store.md)** - Signer management and verification **[NEW]**
-- **[API Reference](docs/api.md)** - Library integration guide  
-- **[File Format](docs/format.md)** - Complete specification with signatures
-- **[Performance Guide](docs/performance.md)** - Optimization tips
-- **[Migration Guide](docs/migration.md)** - Upgrading to signature support
-
-## 🤝 **Contributing**
-
-We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md).
-
-### **Security-First Development**
-- All cryptographic changes require security review
-- Memory safety is mandatory (no unsafe code without justification)
-- Constant-time operations for sensitive data
-- Comprehensive test coverage (>95%)
-- **Signature verification must be tested thoroughly**
-
-### **Code Quality Standards**
-```bash
-# Format code
-cargo fmt
-
-# Run lints
-cargo clippy -- -D warnings
-
-# Security audit
-cargo audit
-
-# Test coverage (including signature tests)
-cargo tarpaulin --out Html
-```
-
-## 🔄 **What's New in v2.0**
-
-### **🆕 ML-DSA-87 Digital Signatures**
-- **Default-on signing** for all encrypted files
-- **Trust store management** with comprehensive signer verification
-- **Canonical header serialization** for deterministic signing
-- **Mandatory signature verification** before decryption
-- **Auto-provisioning** of signer keys with trust integration
-
-### **Enhanced Security**
-- **Non-repudiation** through cryptographic signatures
-- **File authenticity** verification
-- **Tamper detection** with signature validation
-- **Secure key management** for signing keys
-
-### **Improved CLI**
-- New `signer-keygen` command for ML-DSA-87 key generation
-- New `trust` subcommands for signer management
-- Enhanced `encrypt`/`decrypt` with signature options
-- Better error messages and security warnings
 
 ## 📄 **License**
 
-This project is dual-licensed under:
-- **MIT License** - See [LICENSE-MIT](LICENSE-MIT)
-- **Apache License 2.0** - See [LICENSE-APACHE](LICENSE-APACHE)
+This project is dual-licensed under the MIT License and the Apache License 2.0.
 
 ## 🔒 **Security Disclosure**
 
-For security vulnerabilities, please email: security@quantum-shield.dev
+For security vulnerabilities, please email: `security@quantum-shield.dev`. **Do not create public issues for security vulnerabilities.**
 
-**Do not create public issues for security vulnerabilities.**
 
-## 🏆 **Acknowledgments**
 
-- **NIST** - Post-Quantum Cryptography Standardization (FIPS 203, 204)
-- **NSA** - Commercial National Security Algorithm Suite (CNSA 2.0)
-- **Rust Crypto** - Cryptographic primitives and implementations
-- **PQClean** - Reference implementations of post-quantum algorithms
+## 💻 **Complete Command-Line Reference**
 
----
+This section provides a comprehensive reference for all `qsfs` and `qsfs-keygen` commands, detailing every option and providing practical examples for each.
 
-**🛡️ Quantum-Shield v2.0: Securing the Future with Digital Signatures**
+### **`qsfs` - Main CLI**
 
-*Built with ❤️ for a quantum-safe world*
+The `qsfs` command is the primary interface for encryption, decryption, and managing the Quantum-Shield system.
+
+#### **`qsfs encrypt`**
+
+Encrypts a file with the full quantum-resistant suite, including ML-KEM-1024 for key encapsulation and ML-DSA-87 for digital signatures.
+
+**Usage:**
+
+```bash
+qsfs encrypt [OPTIONS] --input <INPUT> --output <OUTPUT> --recipient-pk <RECIPIENT_PK>...
+```
+
+**Options:**
+
+| Option | Description |
+| :--- | :--- |
+| `--input <INPUT>` | Path to the input file to encrypt. |
+| `--output <OUTPUT>` | Path to write the encrypted output file. |
+| `--recipient-pk <RECIPIENT_PK>` | Path to the recipient's ML-KEM-1024 public key. Can be specified multiple times for multiple recipients. |
+| `--recipient-x25519-pk <RECIPIENT_X25519_PK>` | Path to the recipient's X25519 public key for hybrid encryption. |
+| `--signer-key <SIGNER_KEY>` | Path to the ML-DSA-87 signer key. If not provided, the default signer is used. |
+| `--no-signer` | **(Not Recommended)** Disables digital signatures. |
+| `--chunk <CHUNK_SIZE>` | Custom chunk size for streaming encryption (default: 131072). |
+| `--explain` | Prints a detailed explanation of the encryption process. |
+
+**Example:**
+
+```bash
+# Encrypt a document for two recipients with a custom signer
+qsfs encrypt \
+  --input financial-report.docx \
+  --output report.qsfs \
+  --recipient-pk alice.pk \
+  --recipient-pk bob.pk \
+  --signer-key company-signer.mldsa87
+```
+
+#### **`qsfs decrypt`**
+
+Decrypts a file encrypted with Quantum-Shield, verifying the ML-DSA-87 digital signature.
+
+**Usage:**
+
+```bash
+qsfs decrypt [OPTIONS] --input <INPUT> --output <OUTPUT> --mlkem-sk <MLKEM_SK>
+```
+
+**Options:**
+
+| Option | Description |
+| :--- | :--- |
+| `--input <INPUT>` | Path to the encrypted input file. |
+| `--output <OUTPUT>` | Path to write the decrypted output file. |
+| `--mlkem-sk <MLKEM_SK>` | Path to your ML-KEM-1024 secret key. |
+| `--x25519-sk <X25519_SK>` | Path to your X25519 secret key for hybrid decryption. |
+| `--trust-any-signer` | **(Development Only)** Trusts any valid signature, bypassing the trust store. |
+| `--allow-unsigned` | **(Security Risk)** Allows decryption of files without a digital signature. |
+
+**Example:**
+
+```bash
+# Decrypt a file with your secret keys
+qsfs decrypt \
+  --input report.qsfs \
+  --output financial-report.docx \
+  --mlkem-sk my-secret.sk \
+  --x25519-sk my-x25519.sk
+```
+
+#### **`qsfs inspect`**
+
+Inspects the header of an encrypted file without decrypting it, showing cryptographic details.
+
+**Usage:**
+
+```bash
+qsfs inspect <FILE>
+```
+
+**Example:**
+
+```bash
+qsfs inspect report.qsfs
+```
+
+#### **`qsfs signer-keygen`**
+
+Generates a new ML-DSA-87 signer key pair.
+
+**Usage:**
+
+```bash
+qsfs signer-keygen
+```
+
+#### **`qsfs trust`**
+
+Manages the trust store for ML-DSA-87 signers.
+
+**Subcommands:**
+
+- `list`: Lists all trusted signers.
+- `add <SIGNER_PK>`: Adds a signer to the trust store.
+- `remove <SIGNER_ID>`: Removes a signer from the trust store.
+
+**Examples:**
+
+```bash
+# List trusted signers
+qsfs trust list
+
+# Add a new trusted signer
+qsfs trust add new-signer.pk --note "Trusted partner key"
+
+# Remove a signer
+qsfs trust remove 132c737be10f5d2c...
+```
+
+### **`qsfs-keygen` - Key Generation Utility**
+
+The `qsfs-keygen` utility generates ML-KEM-1024 key pairs.
+
+**Usage:**
+
+```bash
+qsfs-keygen
+```
+
+This command will create `mlkem1024.pk` and `mlkem1024.sk` in the current directory.
+
