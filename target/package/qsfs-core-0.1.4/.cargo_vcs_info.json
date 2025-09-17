@@ -1,7 +1,0 @@
-{
-  "git": {
-    "sha1": "ccda1904ca1681f7a82fcf85c9542df45fa0e9b7",
-    "dirty": true
-  },
-  "path_in_vcs": "crates/qsfs-core"
-}
