@@ -54,14 +54,14 @@ Install the Quantum-Shield CLI directly from crates.io:
 
 ```bas
 
-#On Ubuntu/Debian:
+# On Ubuntu/Debian:
 sudo apt update
 sudo apt install build-essential
 
-#Apple ships clang/cc toolchain via Xcode Command Line Tools:
+# Apple ships clang/cc toolchain via Xcode Command Line Tools:
 xcode-select --install
 
-#For Windows
+# Windows
 pacman -S mingw-w64-x86_64-gcc make
 
 cargo install qsfs
