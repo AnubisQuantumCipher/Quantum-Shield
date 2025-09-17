@@ -52,7 +52,18 @@ Quantum-Shield is engineered with a defense-in-depth philosophy, incorporating m
 
 Install the Quantum-Shield CLI directly from crates.io:
 
-```bash
+```bas
+
+#On Ubuntu/Debian:
+sudo apt update
+sudo apt install build-essential
+
+#Apple ships clang/cc toolchain via Xcode Command Line Tools:
+xcode-select --install
+
+#For Windows
+pacman -S mingw-w64-x86_64-gcc make
+
 cargo install qsfs
 ```
 
