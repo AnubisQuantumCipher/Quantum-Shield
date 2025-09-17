@@ -34,7 +34,7 @@ wasm = ["qsfs-core/wasm"]
 
 [dependencies]
 # Do not pin features here; let CLI features forward to the core crate.
-qsfs-core = { version = "0.1.0", path = "../qsfs-core", default-features = false }
+qsfs-core = { version = "0.1.2", path = "../qsfs-core", default-features = false }
 clap = { version = "4.5", features = ["derive"] }
 anyhow = "1.0"
 humansize = "2.1"

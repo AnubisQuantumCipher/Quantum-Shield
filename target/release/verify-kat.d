@@ -1,1 +1,1 @@
-/Users/sicarii/quantum-shield/Quantum-Shield/target/release/verify-kat: /Users/sicarii/quantum-shield/Quantum-Shield/tools/verify-kat/src/main.rs
+/home/ubuntu/quantum-shield-workspace/target/release/verify-kat: /home/ubuntu/quantum-shield-workspace/tools/verify-kat/src/main.rs
