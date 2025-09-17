@@ -1,0 +1,7 @@
+/home/ubuntu/quantum-shield-workspace/target/package/qsfs-0.1.2/target/debug/deps/is_terminal_polyfill-38de4a7f1aa06bfb.d: /home/ubuntu/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/is_terminal_polyfill-1.70.1/src/lib.rs
+
+/home/ubuntu/quantum-shield-workspace/target/package/qsfs-0.1.2/target/debug/deps/libis_terminal_polyfill-38de4a7f1aa06bfb.rlib: /home/ubuntu/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/is_terminal_polyfill-1.70.1/src/lib.rs
+
+/home/ubuntu/quantum-shield-workspace/target/package/qsfs-0.1.2/target/debug/deps/libis_terminal_polyfill-38de4a7f1aa06bfb.rmeta: /home/ubuntu/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/is_terminal_polyfill-1.70.1/src/lib.rs
+
+/home/ubuntu/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/is_terminal_polyfill-1.70.1/src/lib.rs:
