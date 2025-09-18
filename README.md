@@ -69,7 +69,11 @@ pacman -S mingw-w64-x86_64-gcc make
 # Install Rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
+# Verify the installation
+rustc --version
 
+# If the installation was successful, you will see the version number of the Rust compiler, along with other details. You can also verify cargo with:
+cargo --version
 
 # Install Quantum Shield
 cargo install qsfs
