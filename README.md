@@ -50,9 +50,22 @@ Quantum-Shield is engineered with a defense-in-depth philosophy, incorporating m
 
 ### **Installation**
 
+The C/CC toolchain is the collection of programs (compiler, linker, and libraries) that turn human-written C code into runnable software. It must be installed first because all other builds depend on it to compile their source code into working executables.
+
 Install the Quantum-Shield CLI directly from crates.io:
 
-```bash
+```bas
+
+# On Ubuntu/Debian:
+sudo apt update
+sudo apt install build-essential
+
+# Apple ships clang/cc toolchain via Xcode Command Line Tools:
+xcode-select --install
+
+# Windows
+pacman -S mingw-w64-x86_64-gcc make
+
 cargo install qsfs
 ```
 
