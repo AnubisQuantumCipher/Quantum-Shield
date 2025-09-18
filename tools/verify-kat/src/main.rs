@@ -1,11 +1,11 @@
 use aead::{Aead, KeyInit};
 use aes_gcm::{Aes256Gcm, Nonce as N12};
-use aes_gcm_siv::Aes256GcmSiv;
 use hkdf::Hkdf;
 use serde::Deserialize;
 use sha3::Sha3_384;
 
 #[derive(Deserialize)]
+#[allow(dead_code)]
 struct Kat {
     version: String,
     suite: String,
@@ -37,6 +37,7 @@ struct WrapKat {
 }
 
 #[derive(Deserialize)]
+#[allow(dead_code)]
 struct ChunkSivKat {
     pt_utf8: String,
     ct_hex: String,

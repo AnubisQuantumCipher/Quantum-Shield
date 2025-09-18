@@ -1,6 +1,5 @@
 use anyhow::Result;
 use crate::header::Header;
-use crate::suite::SuiteId;
 use base64::{engine::general_purpose, Engine as _};
 
 /// Canonical header serialization for signing

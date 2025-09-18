@@ -1,0 +1,14 @@
+/home/ubuntu/quantum-shield-workspace/target/package/qsfs-0.1.7/target/debug/deps/serde-f2838a6f22a278a0.d: /home/ubuntu/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.225/src/lib.rs /home/ubuntu/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.225/src/integer128.rs /home/ubuntu/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.225/src/private/mod.rs /home/ubuntu/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.225/src/private/de.rs /home/ubuntu/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.225/src/private/ser.rs /home/ubuntu/quantum-shield-workspace/target/package/qsfs-0.1.7/target/debug/build/serde-2f0c033e0f345633/out/private.rs
+
+/home/ubuntu/quantum-shield-workspace/target/package/qsfs-0.1.7/target/debug/deps/libserde-f2838a6f22a278a0.rlib: /home/ubuntu/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.225/src/lib.rs /home/ubuntu/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.225/src/integer128.rs /home/ubuntu/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.225/src/private/mod.rs /home/ubuntu/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.225/src/private/de.rs /home/ubuntu/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.225/src/private/ser.rs /home/ubuntu/quantum-shield-workspace/target/package/qsfs-0.1.7/target/debug/build/serde-2f0c033e0f345633/out/private.rs
+
+/home/ubuntu/quantum-shield-workspace/target/package/qsfs-0.1.7/target/debug/deps/libserde-f2838a6f22a278a0.rmeta: /home/ubuntu/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.225/src/lib.rs /home/ubuntu/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.225/src/integer128.rs /home/ubuntu/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.225/src/private/mod.rs /home/ubuntu/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.225/src/private/de.rs /home/ubuntu/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.225/src/private/ser.rs /home/ubuntu/quantum-shield-workspace/target/package/qsfs-0.1.7/target/debug/build/serde-2f0c033e0f345633/out/private.rs
+
+/home/ubuntu/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.225/src/lib.rs:
+/home/ubuntu/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.225/src/integer128.rs:
+/home/ubuntu/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.225/src/private/mod.rs:
+/home/ubuntu/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.225/src/private/de.rs:
+/home/ubuntu/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.225/src/private/ser.rs:
+/home/ubuntu/quantum-shield-workspace/target/package/qsfs-0.1.7/target/debug/build/serde-2f0c033e0f345633/out/private.rs:
+
+# env-dep:OUT_DIR=/home/ubuntu/quantum-shield-workspace/target/package/qsfs-0.1.7/target/debug/build/serde-2f0c033e0f345633/out

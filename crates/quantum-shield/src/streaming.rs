@@ -8,7 +8,6 @@ use aes_gcm::{Aes256Gcm as Aes, Nonce as GcmNonce};
 compile_error!("Enable either 'gcm-siv' (default) or 'gcm' feature");
 #[cfg(feature="cascade")]
 use chacha20poly1305::{ChaCha20Poly1305, Nonce as ChNonce};
-use blake3::Hasher;
 use anyhow::{Result, bail};
 use tokio::{fs::File, io::AsyncReadExt};
 use std::io::Write;
@@ -45,18 +44,6 @@ mod tests {
         let n_b = nonce_96(f2, 42);
         assert_ne!(n_a, n_b);
     }
-}
-
-pub async fn hash_file(path: &str) -> Result<[u8;32]> {
-    let mut f = File::open(path).await?;
-    let mut h = Hasher::new();
-    let mut buf = vec![0u8; 1<<20];
-    loop {
-        let n = f.read(&mut buf).await?;
-        if n == 0 { break; }
-        h.update(&buf[..n]);
-    }
-    Ok(*h.finalize().as_bytes())
 }
 
 /// Encrypt in streaming mode with enhanced security
