@@ -66,6 +66,12 @@ xcode-select --install
 # Windows
 pacman -S mingw-w64-x86_64-gcc make
 
+# Install Rust
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+
+
+# Install Quantum Shield
 cargo install qsfs
 ```
 
