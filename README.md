@@ -78,7 +78,7 @@ cargo --version
 
 
 # Install Quantum Shield
-cargo install qsfs
+cargo add qsfs-core
 ```
 
 ### **Encryption & Decryption Workflow**
